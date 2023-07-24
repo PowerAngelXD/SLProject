@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CProjects_005CConsoleProject_005CSimpleLauncher_005CSimpleLauncher_005Cbin_005CDebug_005Cnet7_002E0_005CNatsurainko_002EFluentCore_002EExtension_002EWindows_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CProjects_005CLibProject_005CSLCore_005Cbin_005CRelease_005Cnet6_002E0_005CSLCore_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CProjects_005CLibProject_005CSLCore_005Cbin_005CRelease_005Cnet7_002E0_005CSLCore_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="D:\Projects\LibProject\SLCore\bin\Release\net6.0\SLCore.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\17248\.nuget\packages\natsurainko.fluentcore\2.0.6\lib\net6.0\Natsurainko.FluentCore.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

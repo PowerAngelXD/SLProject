@@ -55,14 +55,20 @@ public class SLCommands
         "  |  | install -core=1.18.2+fabric\n" +
         "  | 需求举例2: 下载一个1.7.10的核心并使用Forge安装器，同时搭配Optifine: \n" +
         "  |  | install -core=1.7.10+forge+optifine",
-        new CommandInstance[1]
+        new CommandInstance[2]
         {
             new CommandInstance(
-                new string[3] { "game", "g", "Game" },
+                new string[3] { "-java", "-j", "-Java" },
                 "",
                 null,
                 new SLCore.Command.Action(null, ActionType.Full)
             ),
+            new CommandInstance(
+                new string[3] { "-core", "-c", "-Core" },
+                "",
+                null,
+                new SLCore.Command.Action(null, ActionType.Full)
+            )
         },
         new SLCore.Command.Action(null, ActionType.Seg)
     );

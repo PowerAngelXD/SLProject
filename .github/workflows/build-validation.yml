@@ -37,5 +37,5 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: SLCore-${{matrix.os}}
-          path: ${{github.workspace}}/bin/Release/net.7.0
+          path: ${{github.workspace}}/SimpleLauncher/bin/Release/net.7.0
 

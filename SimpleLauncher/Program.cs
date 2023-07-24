@@ -2,6 +2,7 @@
 using System.Collections;
 using MinecraftLaunch.Modules.Toolkits;
 using SimpleLauncher.Commands;
+using SLCore;
 using Terminal.Gui;
 using SLCore.Utils;
 using Color = System.Drawing.Color;
@@ -10,15 +11,9 @@ using Console = Colorful.Console;
 public class Program
 {
     public static GameCoreToolkit toolkit = new(".minecraft");
-        
-    static void Main(string[] args)
+
+    private static void RunConsole()
     {
-        CommandPool.InitPool();
-        
-        // Register
-        SLRegister.register(SLCommands.CMD_LIST);
-        SLRegister.register(SLCommands.CMD_INSTALL);
-        
         string? input = new string("");
         
         string start = "欢迎使用SimpleLauncher\n" +
@@ -81,6 +76,24 @@ public class Program
             {
                 Console.Out.WriteLine();
             }
+        }
+    }
+    
+    static void Main(string[] args)
+    {
+        Core.InitCore();
+
+        // Register
+        SLRegister.register(SLCommands.CMD_LIST);
+        SLRegister.register(SLCommands.CMD_INSTALL);
+
+        if (args.Length == 0)
+        {
+            RunConsole();
+        }
+        else
+        {
+            CommandHandler.HandCommand(args);
         }
     }
 }

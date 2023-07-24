@@ -33,9 +33,3 @@ jobs:
       - name: Build
         run: dotnet build
 
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: SLCore-${{matrix.os}}
-          path: ${{github.workspace}}/SimpleLauncher/bin/Release/net.7.0
-

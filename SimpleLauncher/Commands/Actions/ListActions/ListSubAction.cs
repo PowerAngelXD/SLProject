@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ListSubAction
 {
-    public static async void SUB_CMD_JAVA(string[]? subs)
+    public static async void SUB_CMD_JAVA(string[] subs)
     {
         var javas = SystemInfoHelper.FindJava(true);
         SLCore.Utils.SLOutput.Print("正在深度搜索您系统内的所有java环境，这会需要一些时间，请您耐心等待.\n" +

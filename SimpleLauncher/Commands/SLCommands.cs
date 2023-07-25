@@ -6,7 +6,7 @@ namespace SimpleLauncher.Commands;
 
 public class SLCommands
 {
-    public static CommandInstance CMD_LIST = new CommandInstance(
+    public static SLCommand CMD_LIST = new SLCommand(
         new string[3] { "list", "ls", "List" },
         "list | ls | List: 查找Java环境或者游戏核心等其他东西\n" +
         "  |子命令1: -java | -j | -Java: 列出本机所有的Java环境\n" +
@@ -19,15 +19,15 @@ public class SLCommands
         "  |注意事项: 该命令不可缺省子命令, 否则会报出错误\n" +
         "  |  | 举例: 'list' 用法会报错误: '对于该命令输入了过少的参数...'; 而 'list -java' 不会\n" +
         "  -\n",
-        new CommandInstance[2]
+        new SLCommand[2]
         {
-            new CommandInstance(
+            new SLCommand(
                 new string[3] { "-java", "-j", "-Java" },
                 "",
                 null,
                 new SLCore.Command.Action(ListSubAction.SUB_CMD_JAVA, ActionType.Full)
             ),
-            new CommandInstance(
+            new SLCommand(
                 new string[3] { "-core", "-c", "-Core" },
                 "",
                 null,
@@ -37,7 +37,7 @@ public class SLCommands
         new SLCore.Command.Action(null, ActionType.Seg)
     );
 
-    public static CommandInstance CMD_INSTALL = new CommandInstance(
+    public static SLCommand CMD_INSTALL = new SLCommand(
         new string[3] { "install", "i", "Install" },
         "install | i | Install: 下载指定的资源 (目前仅限于: 原版核心，Forge，Fabric，Quilt，Java，Optifine)\n" +
         "  |子命令1: -java[=<type>+<version>+<platform>(+kind)] | -j | -Java: 下载指定的java (筛选器语法在'-j' 与 '-Java'子命令中也相同)\n" +
@@ -56,15 +56,15 @@ public class SLCommands
         "  |  | install -core=1.18.2+fabric\n" +
         "  | 需求举例2: 下载一个1.7.10的核心并使用Forge安装器，同时搭配Optifine: \n" +
         "  |  | install -core=1.7.10+forge+optifine",
-        new CommandInstance[2]
+        new SLCommand[2]
         {
-            new CommandInstance(
+            new SLCommand(
                 new string[3] { "-java", "-j", "-Java" },
                 "",
                 null,
                 new SLCore.Command.Action(null, ActionType.Full)
             ),
-            new CommandInstance(
+            new SLCommand(
                 new string[3] { "-core", "-c", "-Core" },
                 "",
                 null,

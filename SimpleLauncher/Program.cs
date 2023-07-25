@@ -1,5 +1,6 @@
 ﻿using SLCore.Command;
 using System.Collections;
+using MinecraftLaunch.Modules.Interface;
 using MinecraftLaunch.Modules.Toolkits;
 using SimpleLauncher.Commands;
 using SLCore;
@@ -10,8 +11,6 @@ using Console = Colorful.Console;
 
 public class Program
 {
-    public static GameCoreToolkit toolkit = new(".minecraft");
-
     private static void RunConsole()
     {
         string? input = new string("");
@@ -35,34 +34,9 @@ public class Program
 
                 if (input == null) continue;
 
-                CommandHandler.HandCommand(input);
+                
             }
             catch (SLCore.Errors.CommandArgumentError e)
-            {
-                SLOutput.Print("初始化程序或完成指令输入后出现了错误", ConsoleColor.Yellow);
-                SLOutput.Print(e.Message, ConsoleColor.Red);
-            }
-            catch (SLCore.Errors.ActionNullException e)
-            {
-                SLOutput.Print("初始化程序或完成指令输入后出现了错误", ConsoleColor.Yellow);
-                SLOutput.Print(e.Message, ConsoleColor.Red);
-            }
-            catch (SLCore.Errors.BindActionException e)
-            {
-                SLOutput.Print("初始化程序或完成指令输入后出现了错误", ConsoleColor.Yellow);
-                SLOutput.Print(e.Message, ConsoleColor.Red);
-            }
-            catch (SLCore.Errors.CommandIdNullException e)
-            {
-                SLOutput.Print("初始化程序或完成指令输入后出现了错误", ConsoleColor.Yellow);
-                SLOutput.Print(e.Message, ConsoleColor.Red);
-            }
-            catch (SLCore.Errors.CommandPoolNullException e)
-            {
-                SLOutput.Print("初始化程序或完成指令输入后出现了错误", ConsoleColor.Yellow);
-                SLOutput.Print(e.Message, ConsoleColor.Red);
-            }
-            catch (SLCore.Errors.HelpContentNullException e)
             {
                 SLOutput.Print("初始化程序或完成指令输入后出现了错误", ConsoleColor.Yellow);
                 SLOutput.Print(e.Message, ConsoleColor.Red);

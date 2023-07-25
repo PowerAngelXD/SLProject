@@ -79,7 +79,7 @@ public class Program
         }
     }
     
-    static void Main(string[] args)
+    static int Main(string[] args)
     {
         Core.InitCore();
 
@@ -95,5 +95,7 @@ public class Program
         {
             CommandHandler.HandCommand(args);
         }
+
+        return 0;
     }
 }

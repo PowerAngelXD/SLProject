@@ -4,13 +4,14 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Colorful.Console" Version="1.2.15" />
     <PackageReference Include="MinecraftLaunch" Version="1.9.5-preview4" />
     <PackageReference Include="MinecraftOAuth" Version="1.9.2" />
     <PackageReference Include="ProjBobcat" Version="1.30.0" />
-    <PackageReference Include="SLCore" Version="0.1.1" />
+    <PackageReference Include="SLCore" Version="0.2.0" />
     <PackageReference Include="Terminal.Gui" Version="1.13.4" />
   </ItemGroup>
   <ItemGroup>

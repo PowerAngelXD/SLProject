@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using MinecraftLaunch.Modules.Toolkits;
 using SimpleLauncher.Commands;
 using SLCore;
 using Terminal.Gui;
@@ -19,9 +18,21 @@ public sealed class SLauncher : ILauncher
     public SLauncher()
     {
         launcherCore = new SimpleLauncherCore(this);
+        Setup();
 
-        launcherCore.CommandPool.Register(new ListCommand());
-        launcherCore.CommandPool.Register(new InstallCommand());
+        // 在此处注册启动器的命令
+        launcherCore.SlCommandManager.Register(new ListCommand());
+        launcherCore.SlCommandManager.Register(new InstallCommand());
+    }
+
+    private void Setup()
+    {
+        if (!Directory.Exists(".minecraft"))
+            Directory.CreateDirectory(".minecraft");
+        if (!Directory.Exists(".minecraft_env"))
+            Directory.CreateDirectory(".minecraft_env");
+        if (!Directory.Exists(".sl_settings"))
+            Directory.CreateDirectory(".sl_settings");
     }
 
     public async ValueTask RunAsync(string[] args)
@@ -33,7 +44,7 @@ public sealed class SLauncher : ILauncher
         else
         {
             var stringArgs = string.Join(' ', args);
-            await launcherCore.CommandPool.ExecuteAsync(stringArgs);
+            await launcherCore.SlCommandManager.ExecuteAsync(stringArgs);
         }
     }
 
@@ -59,14 +70,14 @@ public sealed class SLauncher : ILauncher
         {
             try
             {
-                SLOutput.Prompt();
+                Console.Write("launcher >> ");
                 var input = Console.ReadLine();
                 Console.Out.WriteLine();
 
                 if (string.IsNullOrEmpty(input))
                     continue;
 
-                await launcherCore.CommandPool.ExecuteAsync(input);
+                await launcherCore.SlCommandManager.ExecuteAsync(input);
             }
             catch (Exception ex) when (ex is IError error)
             {

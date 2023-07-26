@@ -8,14 +8,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MinecraftLaunch.Modules.Utils;
 
 namespace SimpleLauncher.Commands.List;
 internal sealed class ListJavaCommand : ISLCommand
 {
-    public string Id => "";
+    public string Id => "simplelauncher:list:java";
 
-    public IEnumerable<string> Aliases { get; } = new string[] {
-        "-java", "-j", "-Java"
+    public IEnumerable<string> Aliases { get; } = new string[] 
+    {
+        "java", "j", "Java"
     };
 
     public string HelpContent => "";
@@ -25,15 +27,13 @@ internal sealed class ListJavaCommand : ISLCommand
         if (args.Any())
             throw CommandArgumentError.TooManyParameters;
 
-        var javas = SystemInfoHelper.FindJava(true);
-        SLOutput.Print(
-            $"正在深度搜索您系统内的所有java环境，这会需要一些时间，请您耐心等待.{Environment.NewLine}" +
-            $"Tips: 搜索时间取决于您的系统的java个数，如果java过多会导致等待时间过长，届时您可以干点其他的事情",
-            ConsoleColor.Yellow);
-
-        await foreach (var java in javas)
+        var javas = JavaUtil.GetJavas();
+        
+        Console.WriteLine("已为您获取到您系统上的标准java环境:");
+        
+        foreach (var java in javas)
         {
-            SLOutput.Print(java);
+            SLOutput.Print(java.JavaVersion + ": " + java.JavaPath);
         }
 
         return null;

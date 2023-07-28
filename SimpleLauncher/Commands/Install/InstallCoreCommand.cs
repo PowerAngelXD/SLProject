@@ -15,6 +15,8 @@ public class InstallCoreCommand: ISLCommand
     
     public Task<ISLCommand?> ExecuteAsync(IEnumerable<string> args)
     {
-        throw new NotImplementedException();
+        
+        
+        return null;
     }
 }

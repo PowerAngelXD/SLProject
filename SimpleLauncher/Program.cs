@@ -1,3 +1,6 @@
 ﻿using SimpleLauncher;
+using SLCore.Commands;
 
-await new SLauncher().RunAsync(args);
+SLauncher launcher = new SLauncher();
+
+await launcher.RunAsync(args);

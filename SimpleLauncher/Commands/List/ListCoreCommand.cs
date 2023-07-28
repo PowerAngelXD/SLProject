@@ -39,12 +39,16 @@ internal sealed class ListCoreCommand : ISLCommand
             foreach (var c in res)
                 Console.WriteLine($"{c.Type}: {c.Id}");
         }
-        else
+        else 
         {
             if (res.ToArray().Length == 0)
             {
-                SLCore.Utils.SLOutput.Print("搜索结果为空，您貌似还没有安装任何一个版本", ConsoleColor.Green);
-                return null;
+                if (args.ToArray().Any() && args.ToArray()[0] == "--ava") ;
+                else
+                {
+                    SLCore.Utils.SLOutput.Print("搜索结果为空，您貌似还没有安装任何一个版本", ConsoleColor.Green);
+                    return null;
+                }
             }
             
             if (args.ToArray().Length > 2)

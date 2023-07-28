@@ -36,7 +36,7 @@ public class InstallJavaCommand: ISLCommand
 
             Console.WriteLine("已开始下载，请您等待一段时间...");
             installer.ProgressChanged += (_, x) => {
-                Console.WriteLine(x.ProgressDescription);
+                Console.WriteLine($"下载进度: {x.ProgressDescription}");
             };
             var res = await installer.InstallAsync();
 
@@ -53,6 +53,9 @@ public class InstallJavaCommand: ISLCommand
             JavaInstaller installer = new JavaInstaller(JdkDownloadSource.JdkJavaNet, OpenJdkType.OpenJdk11, @".minecraft_env\jdk11");
             
             Console.WriteLine("已开始下载，请您等待一段时间...");
+            installer.ProgressChanged += (_, x) => {
+                Console.WriteLine($"下载进度: {x.ProgressDescription}");
+            };
             var res = await installer.InstallAsync();
 
             if(res.Success)
@@ -68,6 +71,9 @@ public class InstallJavaCommand: ISLCommand
             JavaInstaller installer = new JavaInstaller(JdkDownloadSource.JdkJavaNet, OpenJdkType.OpenJdk17, @".minecraft_env\jdk17");
             
             Console.WriteLine("已开始下载，请您等待一段时间...");
+            installer.ProgressChanged += (_, x) => {
+                Console.WriteLine($"下载进度: {x.ProgressDescription}");
+            };
             var res = await installer.InstallAsync();
 
             if(res.Success)
@@ -80,10 +86,12 @@ public class InstallJavaCommand: ISLCommand
             if (Directory.Exists(@".minecraft_env\jdk18"))
                 throw new ExistDirectoryException(@".minecraft_env\jdk18");
 
-            JavaInstaller installer = new JavaInstaller(JdkDownloadSource.JdkJavaNet, OpenJdkType.OpenJdk18,
-                @".minecraft_env\jdk18");
+            JavaInstaller installer = new JavaInstaller(JdkDownloadSource.JdkJavaNet, OpenJdkType.OpenJdk18, @".minecraft_env\jdk18");
 
             Console.WriteLine("已开始下载，请您等待一段时间...");
+            installer.ProgressChanged += (_, x) => {
+                Console.WriteLine($"下载进度: {x.ProgressDescription}");
+            };
             var res = await installer.InstallAsync();
 
             if (res.Success)

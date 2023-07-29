@@ -5,7 +5,8 @@ public enum TokenType
 {
     VersionId,   // 版本说明符
     Identifier,  // 标识符，比如fabric，forge这种
-    ConnectOp    // 连接符，特指 ‘+’
+    ConnectOp,    // 连接符，特指 ‘+’
+    End
 }
 
 /// <summary>
@@ -45,7 +46,7 @@ public class CoreFilterReader
                 // 生成VersionId的Token
                 string content = new string(ReadOnlySpan<char>.Empty);
                 
-                while (Char.IsDigit(ch) || ch == '.')
+                while (ch != '+')
                 {
                     content += ch;
                     i++;
@@ -76,6 +77,7 @@ public class CoreFilterReader
             else
                 throw new UnknownIcfeTokenException();
         }
+        _tokens?.Add(new ICFEToken("END", TokenType.End));
     }
 
     public List<ICFEToken>? GetTokens() => _tokens;

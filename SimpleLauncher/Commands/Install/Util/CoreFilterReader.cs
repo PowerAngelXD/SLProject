@@ -50,7 +50,10 @@ public class CoreFilterReader
                 {
                     content += ch;
                     i++;
-                    ch = _res[i];
+                    if (i < _res.Length)
+                        ch = _res[i];
+                    else
+                        break;
                 }
 
                 _tokens?.Add(new ICFEToken(content, TokenType.VersionId));
@@ -64,7 +67,10 @@ public class CoreFilterReader
                 {
                     content += ch;
                     i++;
-                    ch = _res[i];
+                    if (i < _res.Length)
+                        ch = _res[i];
+                    else
+                        break;
                 }
                 
                 _tokens?.Add(new ICFEToken(content, TokenType.Identifier));

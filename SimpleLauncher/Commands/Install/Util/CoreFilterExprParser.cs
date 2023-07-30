@@ -4,10 +4,10 @@ using MinecraftLaunch.Modules.Installer;
 namespace SimpleLauncher.Commands.Install.Util;
 public struct CoreFilterExprResult
 {
-    public string? RequireVersion;
-    public List<ModLoaderType>? RequireTypes;
+    public readonly string RequireVersion;
+    public readonly List<ModLoaderType>? RequireTypes;
 
-    public CoreFilterExprResult(string version, List<ModLoaderType> types)
+    public CoreFilterExprResult(string version, List<ModLoaderType>? types)
     {
         RequireVersion = version;
         RequireTypes = types;
@@ -16,7 +16,7 @@ public struct CoreFilterExprResult
 
 public class CoreFilterExprParser
 {
-    public CoreFilterExprResult? Result;
+    public CoreFilterExprResult Result;
     private readonly List<ICFEToken>? _tokens;
 
     /// <summary>
@@ -59,9 +59,9 @@ public class CoreFilterExprParser
         string versionId = String.Empty;
         List<ModLoaderType> types = new List<ModLoaderType>();
         
-        for (int i = 0; i < _tokens?.Count; i++)
+        for (; _pos < _tokens?.Count; _pos++)
         {
-            if (i == 0)
+            if (_pos == 0)
             {
                 // 检查是否开头为版本号
                 if (IsVersionId().Result)
@@ -71,6 +71,7 @@ public class CoreFilterExprParser
                 else
                     throw new HeadIsNotVersionException();
             }
+            else if (Current().Type == TokenType.End) break;
 
             if (IsForge())
             {
@@ -102,6 +103,9 @@ public class CoreFilterExprParser
             else if (IsConnectOp()) continue;
         }
 
-        Result = new CoreFilterExprResult(versionId, types);
+        if (types.Count == 0)
+            Result = new CoreFilterExprResult(versionId, null);
+        else
+            Result = new CoreFilterExprResult(versionId, types);
     }
 }

@@ -14,15 +14,15 @@ namespace SimpleLauncher;
 
 public sealed class SLauncher : ILauncher
 {
-    private readonly SimpleLauncherCore launcherCore;
+    public static SimpleLauncherCore LauncherCore;
     public SLauncher()
     {
-        launcherCore = new SimpleLauncherCore(this);
+        LauncherCore = new SimpleLauncherCore(this);
         Setup();
 
         // 在此处注册启动器的命令
-        launcherCore.SlCommandManager.Register(new ListCommand());
-        launcherCore.SlCommandManager.Register(new InstallCommand());
+        LauncherCore.SlCommandManager.Register(new ListCommand());
+        LauncherCore.SlCommandManager.Register(new InstallCommand());
     }
 
     private void Setup()
@@ -44,7 +44,7 @@ public sealed class SLauncher : ILauncher
         else
         {
             var stringArgs = string.Join(' ', args);
-            await launcherCore.SlCommandManager.ExecuteAsync(stringArgs);
+            await LauncherCore.SlCommandManager.ExecuteAsync(stringArgs);
         }
     }
 
@@ -63,7 +63,7 @@ public sealed class SLauncher : ILauncher
             $"欢迎使用SimpleLauncher{Environment.NewLine}" +
             $"不了解命令？您可以输入 'help' 来查看命令帮助文档{Environment.NewLine}" +
             $"如果您要退出，您可以输入 'q'{Environment.NewLine}" +
-            $"当前启动器核心版本: {launcherCore.CoreInfo.CoreVersion}{Environment.NewLine}" +
+            $"当前启动器核心版本: {LauncherCore.CoreInfo.CoreVersion}{Environment.NewLine}" +
             $"    启动器本体版本: {this.LauncherVersion}{Environment.NewLine}");
         
         while (!closeRequired)
@@ -77,7 +77,7 @@ public sealed class SLauncher : ILauncher
                 if (string.IsNullOrEmpty(input))
                     continue;
 
-                await launcherCore.SlCommandManager.ExecuteAsync(input);
+                await LauncherCore.SlCommandManager.ExecuteAsync(input);
             }
             catch (Exception ex) when (ex is IError error)
             {

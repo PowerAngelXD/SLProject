@@ -41,6 +41,7 @@ public class SettingCommand : ISLCommand
                 case "0":
                 {
                     var content = newArgs[2];
+                    
                     break;
                 }
                     

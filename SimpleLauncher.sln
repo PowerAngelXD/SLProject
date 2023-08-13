@@ -4,6 +4,8 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleLauncher", "SimpleLauncher\SimpleLauncher.csproj", "{55607E02-2203-4C4D-95D4-1589D194F742}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLCore", "SLCore\SLCore.csproj", "{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,14 @@ Global
 		{55607E02-2203-4C4D-95D4-1589D194F742}.Release|Any CPU.Build.0 = Release|Any CPU
 		{55607E02-2203-4C4D-95D4-1589D194F742}.Release|x64.ActiveCfg = Release|x64
 		{55607E02-2203-4C4D-95D4-1589D194F742}.Release|x64.Build.0 = Release|x64
+		{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}.Debug|x64.Build.0 = Debug|Any CPU
+		{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}.Release|x64.ActiveCfg = Release|Any CPU
+		{01BD1DD5-0CC7-49E8-9D3A-A7ADFC41B639}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

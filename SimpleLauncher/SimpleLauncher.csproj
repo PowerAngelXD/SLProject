@@ -8,9 +8,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Colorful.Console" Version="1.2.15" />
-    <PackageReference Include="MinecraftLaunch" Version="1.9.5-preview7" />
+    <PackageReference Include="MinecraftLaunch" Version="1.9.5" />
     <PackageReference Include="MinecraftOAuth" Version="1.9.2" />
     <PackageReference Include="Natsurainko.FluentCore" Version="2.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="ShellProgressBar" Version="5.2.0" />
     <PackageReference Include="Terminal.Gui" Version="1.13.4" />
   </ItemGroup>
   <ItemGroup>
@@ -20,8 +22,6 @@
     <Folder Include="PluginManager\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="SLCore">
-      <HintPath>..\..\..\LibProject\SLCore\bin\Release\net7.0\SLCore.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\SLCore\SLCore.csproj" />
   </ItemGroup>
 </Project>

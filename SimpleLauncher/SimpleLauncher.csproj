@@ -16,9 +16,6 @@
     <PackageReference Include="Terminal.Gui" Version="1.13.4" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".github\build-validation.yml" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="PluginManager\" />
   </ItemGroup>
   <ItemGroup>

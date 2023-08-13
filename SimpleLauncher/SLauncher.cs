@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using SimpleLauncher.Commands;
 using SLCore;
-using Terminal.Gui;
 using SLCore.Utils;
 using Color = System.Drawing.Color;
 using Console = Colorful.Console;
 using System.Linq;
+using ShellProgressBar;
 using SLCore.Errors;
 using SimpleLauncher.Commands.List;
 using SimpleLauncher.Commands.Install;
@@ -31,8 +31,12 @@ public sealed class SLauncher : ILauncher
             Directory.CreateDirectory(".minecraft");
         if (!Directory.Exists(".minecraft_env"))
             Directory.CreateDirectory(".minecraft_env");
-        if (!Directory.Exists(".sl_settings"))
-            Directory.CreateDirectory(".sl_settings");
+        
+        // 检测配置工作
+        foreach (var config in LauncherCore.ConfigManager.GetConfigs())
+        {
+            config.OnChecking();
+        }
     }
 
     public async ValueTask RunAsync(string[] args)

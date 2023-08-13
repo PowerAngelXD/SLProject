@@ -10,7 +10,7 @@ using Terminal.Gui;
 namespace SimpleLauncher.Commands.List;
 internal sealed class ListCommand : ISLCommand
 {
-    public string Id { get; } = "simplelauncher:list";
+    public string Id => "simplelauncher:list";
 
     public IEnumerable<string> Aliases { get; } = new string[] 
     {

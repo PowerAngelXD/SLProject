@@ -1,5 +1,7 @@
+using MinecraftLaunch.Modules.Enum;
 using MinecraftLaunch.Modules.Installer;
 using MinecraftLaunch.Modules.Models.Download;
+using MinecraftLaunch.Modules.Models.Install;
 using SimpleLauncher.Commands.Install.Util;
 using SLCore.Commands;
 using SLCore.Errors;
@@ -54,7 +56,10 @@ public class InstallCoreCommand: ISLCommand
         }
         else
         {
-            // TODO
+            if (parser.Result.RequireTypes.Contains(ModLoaderType.Forge))
+            {
+                ForgeInstaller forgeInstaller = new ForgeInstaller(SLauncher.LauncherCore.CoreToolKit, new ForgeInstallEntity(), "");
+            }
         }
         
         return null;
